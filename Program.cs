@@ -11,21 +11,25 @@ namespace NumberGuesser
       const int max = 100;
       var lower = min;
       var upper = max;
-      int tries = 0;
+      var tries = 0;
       double nextGuess = Math.Round(Math.Log(max) / Math.Log(2));
       var guess = (lower + upper) / 2;
-      var correctGuess = 33;
 
-      Console.WriteLine(nextGuess);
-      while (correctGuess != nextGuess)
+      Console.WriteLine($"Is {guess} your number?");
+      var input = Console.ReadLine();
+      while (input != "Yes")
       {
-        if (nextGuess > correctGuess)
+        Console.WriteLine("Is it higher or lower?");
+        if (input == "higher")
         {
-          return (lower = guess + 1) && tries++;
+          lower = guess + 1;
+          tries++;
         }
-        if (nextGuess < correctGuess)
+        if (input == "lower")
         {
-          return (upper = guess - 1) && tries++;
+          upper = guess - 1;
+          tries++;
+
 
         }
 
