@@ -6,8 +6,8 @@ namespace NumberGuesser
   {
     static void Main(string[] args)
     {
-      bool again = false;
-      while (!again)
+      var playing = true;
+      while (playing)
       {
         Console.WriteLine("Welcome! Pick a number between 1 and 100 and I will figure it out...");
         const int min = 1;
@@ -42,13 +42,15 @@ namespace NumberGuesser
           }
 
         }
-        if (input == "yes")
+        // play again logic
+        Console.WriteLine("I knew I'd get it! Press 'y' to play again, and any other key to exit");
+
+
+        if (Console.ReadLine() != "y")
         {
-          Console.WriteLine("I knew I'd get it! Press 'n' if you would like to play again");
-        }
-        if (Console.ReadLine() == "n")
-        {
-          again = false;
+          //toggle the playing
+          playing = false;
+
         }
       }
     }
